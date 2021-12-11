@@ -28,7 +28,8 @@ class Securite:
         # Retransforme en chaine de caractères
         for chiffres in chiffreMessage:
             for chiffre in chiffres:
-                messageChiffre += chr(chiffre)
+                # int() pour fixer les problèmes d'arrondi des float
+                messageChiffre += chr(int(chiffre))
         # Détruit la variable chiffreMessage
         chiffreMessage.clear()
         return messageChiffre

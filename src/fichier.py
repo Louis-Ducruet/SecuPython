@@ -27,6 +27,6 @@ class Fichier:
 
     def ecrireFichier(self, fichier, message):
         fichier = self.output + "/" + fichier
-        fichier = open(fichier, "a", encoding="utf-8")
+        fichier = open(fichier, "w", encoding="utf-8")
         fichier.write(message)
         fichier.close()

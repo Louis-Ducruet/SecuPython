@@ -4,7 +4,7 @@ import src.fichier as fichier
 
 
 def start():
-    chiffrement = securite.Securite([[2, 5], [1, 3]], [[3, -5], [-1, 2]])
+    chiffrement = securite.Securite([[13, 24], [8, 14]], [[-7/5, 12/5], [4/5, -13/10]])
     editeur = fichier.Fichier("input", "output")
     print(
         " ███████╗███████╗ ██████╗██╗   ██╗██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗\n"
@@ -20,6 +20,8 @@ def start():
     message = chiffrement.chiffrement(message, True)
     print(message)
     editeur.ecrireFichier("test.txt", message)
+    message = chiffrement.chiffrement(message, False)
+    print(message)
     input("Presser ENTRER pour quitter le programme.")
 
 
