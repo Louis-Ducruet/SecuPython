@@ -16,13 +16,11 @@ class Securite:
         # Chiffre le tableau en ce basant sur Hill
         for key, number in enumerate(numberMessage):
             if chiffrement:
-                chiffreMessage.append([(number[0] * self.matriceC[0][0] + number[1] * self.matriceC[0][1]) % 1114111])
-                chiffreMessage[key].append(
-                    (number[0] * self.matriceC[1][0] + number[1] * self.matriceC[1][1]) % 1114111)
+                matrice = self.matriceC
             else:
-                chiffreMessage.append([(number[0] * self.matriceD[0][0] + number[1] * self.matriceD[0][1]) % 1114111])
-                chiffreMessage[key].append(
-                    (number[0] * self.matriceD[1][0] + number[1] * self.matriceD[1][1]) % 1114111)
+                matrice = self.matriceD
+            chiffreMessage.append([(number[0] * matrice[0][0] + number[1] * matrice[0][1]) % 1114111])
+            chiffreMessage[key].append((number[0] * matrice[1][0] + number[1] * matrice[1][1]) % 1114111)
         # Détruit la variable numbreMessage
         numberMessage.clear()
         # Retransforme en chaine de caractères

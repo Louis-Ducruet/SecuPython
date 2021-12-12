@@ -2,9 +2,10 @@ import os
 
 
 class Fichier:
-    def __init__(self, input, output):
+    def __init__(self, input, output, src="src"):
         self.input = input
         self.output = output
+        self.src = src
 
     def dossierExiste(self):
         if os.path.exists(self.input) and os.path.exists(self.output):
@@ -12,9 +13,13 @@ class Fichier:
                 return True
         return False
 
-    def fichierExiste(self, fichier):
-        if os.path.exists(self.input + "/" + fichier):
-            if os.path.isfile(self.input + "/" + fichier):
+    def fichierExiste(self, fichier, inSrc=False):
+        if inSrc:
+            dossier = self.src
+        else:
+            dossier = self.input
+        if os.path.exists(dossier + "/" + fichier):
+            if os.path.isfile(dossier + "/" + fichier):
                 return True
         return False
 
