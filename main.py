@@ -1,7 +1,7 @@
-# TODO check this website https://www.generacodice.com/fr/articolo/113783/How+to+print+colored+text+in+terminal+in+Python%3F
 import src.securite as securite
 import src.fichier as fichier
 import src.couleur as couleur
+import src.app as app
 import os
 
 # Enable print color for windows terminal
@@ -12,14 +12,9 @@ def start():
     chiffrement = securite.Securite([[13, 24], [8, 14]], [[-7 / 5, 12 / 5], [4 / 5, -13 / 10]])
     editeur = fichier.Fichier("input", "output")
     terminal = couleur.Couleur()
-    print(
-        f" {terminal.fBleu}███████╗███████╗ ██████╗██╗   ██╗{terminal.fJaune}██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗{terminal.annule}\n"
-        f" {terminal.fBleu}██╔════╝██╔════╝██╔════╝██║   ██║{terminal.fJaune}██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║{terminal.annule}\n"
-        f" {terminal.fBleu}███████╗█████╗  ██║     ██║   ██║{terminal.fJaune}██████╔╝ ╚████╔╝    ██║   ███████║██║   ██║██╔██╗ ██║{terminal.annule}\n"
-        f" {terminal.fBleu}╚════██║██╔══╝  ██║     ██║   ██║{terminal.fJaune}██╔═══╝   ╚██╔╝     ██║   ██╔══██║██║   ██║██║╚██╗██║{terminal.annule}\n"
-        f" {terminal.fBleu}███████║███████╗╚██████╗╚██████╔╝{terminal.fJaune}██║        ██║      ██║   ██║  ██║╚██████╔╝██║ ╚████║{terminal.annule}\n"
-        f" {terminal.fBleu}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {terminal.fJaune}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{terminal.annule}\n"
-    )
+
+    app.efface(terminal)
+
     print(editeur.dossierExiste())
     print(editeur.fichierExiste("test.txt"))
     message = editeur.contenuFichier("test.txt")
