@@ -23,15 +23,23 @@ class Fichier:
                 return True
         return False
 
-    def contenuFichier(self, fichier):
-        fichier = self.input + "/" + fichier
+    def contenuFichier(self, fichier, inSrc=False):
+        if inSrc:
+            dossier = self.src
+        else:
+            dossier = self.input
+        fichier = dossier + "/" + fichier
         fichier = open(fichier, "r", encoding="utf-8")
         contenu = fichier.read()
         fichier.close()
         return contenu
 
-    def ecrireFichier(self, fichier, message):
-        fichier = self.output + "/" + fichier
+    def ecrireFichier(self, fichier, message, inSrc=False):
+        if inSrc:
+            dossier = self.src
+        else:
+            dossier = self.output
+        fichier = dossier + "/" + fichier
         fichier = open(fichier, "w", encoding="utf-8")
         fichier.write(message)
         fichier.close()

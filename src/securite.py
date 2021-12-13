@@ -8,7 +8,7 @@ class Securite:
         chiffreMessage = []
         messageChiffre = ""
         # Transforme la chaine de caractères en nombres dans un tableau.
-        for key, lettre in enumerate(list(message)):
+        for key, lettre in enumerate(list(str(message))):
             if key % 2 == 0:
                 numberMessage.append([ord(lettre), ord(' ')])
             else:
