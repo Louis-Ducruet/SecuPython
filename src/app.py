@@ -11,12 +11,12 @@ def efface(terminal):
         os.system('clear')
     print(
         "\n\n"
-        f"    {terminal.fBleu}███████╗███████╗ ██████╗██╗   ██╗{terminal.fJaune}██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗{terminal.annule}\n"
-        f"    {terminal.fBleu}██╔════╝██╔════╝██╔════╝██║   ██║{terminal.fJaune}██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║{terminal.annule}\n"
-        f"    {terminal.fBleu}███████╗█████╗  ██║     ██║   ██║{terminal.fJaune}██████╔╝ ╚████╔╝    ██║   ███████║██║   ██║██╔██╗ ██║{terminal.annule}\n"
-        f"    {terminal.fBleu}╚════██║██╔══╝  ██║     ██║   ██║{terminal.fJaune}██╔═══╝   ╚██╔╝     ██║   ██╔══██║██║   ██║██║╚██╗██║{terminal.annule}\n"
-        f"    {terminal.fBleu}███████║███████╗╚██████╗╚██████╔╝{terminal.fJaune}██║        ██║      ██║   ██║  ██║╚██████╔╝██║ ╚████║{terminal.annule}\n"
-        f"    {terminal.fBleu}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {terminal.fJaune}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{terminal.annule}\n"
+        f"    {terminal.fCyan}███████╗███████╗ ██████╗██╗   ██╗{terminal.fJaune}██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗{terminal.annule}\n"
+        f"    {terminal.fCyan}██╔════╝██╔════╝██╔════╝██║   ██║{terminal.fJaune}██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║{terminal.annule}\n"
+        f"    {terminal.fCyan}███████╗█████╗  ██║     ██║   ██║{terminal.fJaune}██████╔╝ ╚████╔╝    ██║   ███████║██║   ██║██╔██╗ ██║{terminal.annule}\n"
+        f"    {terminal.fCyan}╚════██║██╔══╝  ██║     ██║   ██║{terminal.fJaune}██╔═══╝   ╚██╔╝     ██║   ██╔══██║██║   ██║██║╚██╗██║{terminal.annule}\n"
+        f"    {terminal.fCyan}███████║███████╗╚██████╗╚██████╔╝{terminal.fJaune}██║        ██║      ██║   ██║  ██║╚██████╔╝██║ ╚████║{terminal.annule}\n"
+        f"    {terminal.fCyan}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {terminal.fJaune}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{terminal.annule}\n"
     )
 
 

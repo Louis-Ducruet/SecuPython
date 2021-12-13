@@ -30,13 +30,14 @@ def start():
         print(f"{terminal.bRouge}Erreur : Une tentative de hack a bloqué l'application pour 24h!{terminal.annule}\n")
         return False
     # Autentification
-
+    print(f"{terminal.bCyan}{terminal.fNoir}Info : Authentification prochainement disponible ...{terminal.annule}\n")
     # Vérification si les dossiers input et output existe
     if not editeur.dossierExiste():
         print(
             f"{terminal.bRouge}Erreur : Le ou les dossiers {editeur.input} et {editeur.output} n'existe pas !{terminal.annule}\n")
         return False
     # Choix entre Chiffrer, Déchiffrer et Paramètres
+    print(f"{terminal.bCyan}{terminal.fNoir}Info : Menu prochainement disponible ...{terminal.annule}\n")
 
 
 start()
