@@ -26,6 +26,12 @@ class Couleur:
             "  {}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{}\n"
         ]
 
+    def logo(self):
+        t = "\n"
+        for line in self.logoTxt:
+            t += line.format(self.fCyan, self.fJaune, self.annule)
+        return t
+
     def alerte(self, message):
         return "{}{}Alerte : {}{}\n".format(self.bRouge, self.fBlanc, message, self.annule)
 
@@ -35,8 +41,5 @@ class Couleur:
     def info(self, message):
         return "{}{}Info : {}{}\n".format(self.bCyan, self.fNoir, message, self.annule)
 
-    def logo(self):
-        t = "\n"
-        for line in self.logoTxt:
-            t += line.format(self.fCyan, self.fJaune, self.annule)
-        return t
+    def attendre(self, message):
+        return "Presser {}ENTER{} {}".format(self.fJaune, self.annule, message)

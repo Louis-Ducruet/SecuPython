@@ -40,4 +40,4 @@ def start():
 
 
 start()
-input(f"Presser {terminal.bNoir}{terminal.fJaune}ENTRER{terminal.annule} pour quitter le programme.")
+app.attendre(terminal, "pour quitter l'app.")

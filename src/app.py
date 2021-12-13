@@ -12,8 +12,8 @@ def efface(terminal):
     print(terminal.logo())
 
 
-def attendre(terminal):
-    input(f"Presser {terminal.bNoir}{terminal.fJaune}ENTRER{terminal.annule} pour continuer.")
+def attendre(terminal, message):
+    input(terminal.attendre(message))
 
 
 def secuTime(editeur, chiffSys, terminal):
