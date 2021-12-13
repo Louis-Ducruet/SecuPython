@@ -29,14 +29,19 @@ def start():
     if not app.secuTime(editeur, chiffSys, terminal):
         print(terminal.alerte("Suite à une tentative de hack l'app est bloquée pendant 24h !"))
         return False
-    # Autentification
+    # TODO Autentification
     print(terminal.info("Authentification prochainement disponible ..."))
+        # TODO Vérifier l'intégriter du fichier user.txt
+        # TODO Demande 5 fois login et mdp
+        # TODO Vérrouillage et envoie du mail
     # Vérification si les dossiers input et output existe
     if not editeur.dossierExiste():
         print(terminal.alerte("Le ou les dossier(s) {} {} n'existe(nt) pas".format(editeur.input, editeur.output)))
         return False
-    # Choix entre Chiffrer, Déchiffrer et Paramètres
+    # TODO Boucle
+        # TODO Choix entre Chiffrer fichier txt/jpg ou png, Déchiffrer txt/jpg ou png, Paramètres, Se déconnecter
     print(terminal.info("Menu prochainement disponible ..."))
+        # TODO Appel de la fonction choisi dans le menu
 
 
 start()
