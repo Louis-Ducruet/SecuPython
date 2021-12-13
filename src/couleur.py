@@ -17,3 +17,26 @@ class Couleur:
         self.bCyan = "\033[46m"
         self.bBlanc = "\033[47m"
         self.annule = "\033[0m"
+        self.logoTxt = [
+            "  {}███████╗███████╗ ██████╗██╗   ██╗{}██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗{}\n",
+            "  {}██╔════╝██╔════╝██╔════╝██║   ██║{}██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║{}\n",
+            "  {}███████╗█████╗  ██║     ██║   ██║{}██████╔╝ ╚████╔╝    ██║   ███████║██║   ██║██╔██╗ ██║{}\n",
+            "  {}╚════██║██╔══╝  ██║     ██║   ██║{}██╔═══╝   ╚██╔╝     ██║   ██╔══██║██║   ██║██║╚██╗██║{}\n",
+            "  {}███████║███████╗╚██████╗╚██████╔╝{}██║        ██║      ██║   ██║  ██║╚██████╔╝██║ ╚████║{}\n",
+            "  {}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{}\n"
+        ]
+
+    def alerte(self, message):
+        return "{}{}Alerte : {}{}\n".format(self.bRouge, self.fBlanc, message, self.annule)
+
+    def attention(self, message):
+        return "{}{}Attention : {}{}\n".format(self.bJaune, self.fNoir, message, self.annule)
+
+    def info(self, message):
+        return "{}{}Info : {}{}\n".format(self.bCyan, self.fNoir, message, self.annule)
+
+    def logo(self):
+        t = "\n"
+        for line in self.logoTxt:
+            t += line.format(self.fCyan, self.fJaune, self.annule)
+        return t

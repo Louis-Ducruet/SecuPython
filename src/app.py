@@ -9,15 +9,7 @@ def efface(terminal):
     # pour mac et linux
     else:
         os.system('clear')
-    print(
-        "\n\n"
-        f"    {terminal.fCyan}███████╗███████╗ ██████╗██╗   ██╗{terminal.fJaune}██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗{terminal.annule}\n"
-        f"    {terminal.fCyan}██╔════╝██╔════╝██╔════╝██║   ██║{terminal.fJaune}██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║{terminal.annule}\n"
-        f"    {terminal.fCyan}███████╗█████╗  ██║     ██║   ██║{terminal.fJaune}██████╔╝ ╚████╔╝    ██║   ███████║██║   ██║██╔██╗ ██║{terminal.annule}\n"
-        f"    {terminal.fCyan}╚════██║██╔══╝  ██║     ██║   ██║{terminal.fJaune}██╔═══╝   ╚██╔╝     ██║   ██╔══██║██║   ██║██║╚██╗██║{terminal.annule}\n"
-        f"    {terminal.fCyan}███████║███████╗╚██████╗╚██████╔╝{terminal.fJaune}██║        ██║      ██║   ██║  ██║╚██████╔╝██║ ╚████║{terminal.annule}\n"
-        f"    {terminal.fCyan}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {terminal.fJaune}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{terminal.annule}\n"
-    )
+    print(terminal.logo())
 
 
 def attendre(terminal):
@@ -30,7 +22,8 @@ def secuTime(editeur, chiffSys, terminal):
     try:
         int(timer)
     except:
-        print(f"{terminal.bRouge}Erreur : Le fichier time.txt est corrompu. Restauration du fichier !{terminal.annule}\n")
+        print(terminal.alerte("Le fichier time.txt a été corrompu !"))
+        print(terminal.attention("Restauration du fichier, par sécurité l'app est bloquée pour 24h."))
         editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time()), True), True)
         return False
     if time.time() - 86400 < int(timer):

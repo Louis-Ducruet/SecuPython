@@ -18,26 +18,25 @@ def start():
     app.efface(terminal)
     # Vérification si les données utilisateurs existe
     if not editeur.fichierExiste("user.txt", True):
-        print(f"{terminal.bRouge}Erreur : Le fichier user.txt n'existe pas !{terminal.annule}\n")
+        print(terminal.alerte("Le fichier user.txt n'existe pas !"))
         return False
     # Vérification s'il y a eu une tentative de hack
     if not editeur.fichierExiste("time.txt", True):
-        print(f"{terminal.bRouge}Erreur : Le fichier time.txt n'existe pas !{terminal.annule}\n")
+        print(terminal.alerte("Le fichier time.txt n'existe pas !"))
         editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time()), True), True)
-        print(f"{terminal.bJaune}{terminal.fNoir}Création du fichier : Pour éviter toute tentative de fraude l'app est bloquer pour {terminal.fRouge}24h{terminal.annule}.\n")
+        print(terminal.attention("Création du fichier, par sécurité l'app est bloquée pour 24h."))
         return False
     if not app.secuTime(editeur, chiffSys, terminal):
-        print(f"{terminal.bRouge}Erreur : Une tentative de hack a bloqué l'application pour 24h!{terminal.annule}\n")
+        print(terminal.alerte("Suite à une tentative de hack l'app est bloquée pendant 24h !"))
         return False
     # Autentification
-    print(f"{terminal.bCyan}{terminal.fNoir}Info : Authentification prochainement disponible ...{terminal.annule}\n")
+    print(terminal.info("Authentification prochainement disponible ..."))
     # Vérification si les dossiers input et output existe
     if not editeur.dossierExiste():
-        print(
-            f"{terminal.bRouge}Erreur : Le ou les dossiers {editeur.input} et {editeur.output} n'existe pas !{terminal.annule}\n")
+        print(terminal.alerte("Le ou les dossier(s) {} {} n'existe(nt) pas".format(editeur.input, editeur.output)))
         return False
     # Choix entre Chiffrer, Déchiffrer et Paramètres
-    print(f"{terminal.bCyan}{terminal.fNoir}Info : Menu prochainement disponible ...{terminal.annule}\n")
+    print(terminal.info("Menu prochainement disponible ..."))
 
 
 start()
