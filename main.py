@@ -1,3 +1,4 @@
+import src.verification as verification
 import src.securite as securite
 import src.fichier as fichier
 import src.couleur as couleur
@@ -16,28 +17,12 @@ terminal = couleur.Couleur()
 
 def start():
     app.efface(terminal)
-    # Vérification si les données utilisateurs existe
-    if not editeur.fichierExiste("user.txt", True):
-        print(terminal.alerte("Le fichier user.txt n'existe pas !"))
-        return False
-    # Vérification s'il y a eu une tentative de hack
-    if not editeur.fichierExiste("time.txt", True):
-        print(terminal.alerte("Le fichier time.txt n'existe pas !"))
-        editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time()), True), True)
-        print(terminal.attention("Création du fichier, par sécurité l'app est bloquée pour 24h."))
-        return False
-    if not app.secuTime(editeur, chiffSys, terminal):
-        print(terminal.alerte("Suite à une tentative de hack l'app est bloquée pendant 24h !"))
-        return False
-    # TODO Autentification
+    verification.verificationDepart(app, chiffSys, editeur, terminal)
+    # TODO Authentification
     print(terminal.info("Authentification prochainement disponible ..."))
-        # TODO Vérifier l'intégriter du fichier user.txt
+        # TODO Vérifier l'intégriter du fichier user.json
         # TODO Demande 5 fois login et mdp
         # TODO Vérrouillage et envoie du mail
-    # Vérification si les dossiers input et output existe
-    if not editeur.dossierExiste():
-        print(terminal.alerte("Le ou les dossier(s) {} {} n'existe(nt) pas".format(editeur.input, editeur.output)))
-        return False
     # TODO Boucle
         # TODO Choix entre Chiffrer fichier txt/jpg ou png, Déchiffrer txt/jpg ou png, Paramètres, Se déconnecter
     print(terminal.info("Menu prochainement disponible ..."))
@@ -45,4 +30,5 @@ def start():
 
 
 start()
+time.sleep(1)
 app.attendre(terminal, "pour quitter l'app.")
