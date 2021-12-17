@@ -1,6 +1,8 @@
 import os
 import time
 
+currentUser = None
+
 
 def efface(terminal):
     # pour windows

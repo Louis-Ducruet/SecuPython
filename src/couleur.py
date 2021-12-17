@@ -43,3 +43,6 @@ class Couleur:
 
     def attendre(self, message):
         return "Presser {}ENTER{} {}".format(self.fJaune, self.annule, message)
+
+    def input(self, premsg ,message):
+        return "Merci d'enter {} {}{}{} : ".format(premsg, self.fVert, message, self.annule)
