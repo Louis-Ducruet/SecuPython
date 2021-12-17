@@ -1,4 +1,6 @@
 import time
+import json
+import src.authentification as authentification
 
 
 def verificationDepart(app, chiffSys, editeur, terminal):
@@ -20,3 +22,19 @@ def verificationDepart(app, chiffSys, editeur, terminal):
     if not app.secuTime(editeur, chiffSys, terminal):
         print(terminal.alerte("Suite à une tentative de hack l'app est bloquée pendant 24h !"))
         return False
+    return True
+
+
+def userIntegrite(terminal, editeur, chiffSys):
+    try:
+        user = json.loads(authentification.userFichier(editeur, chiffSys))
+        # Vérification que tous les champs existent avec vérification du typage
+        temp1, temp2 = str(user['default-email']), str(user['smtp']['server'])
+        temp1, temp2 = int(user['smtp']['port']), str(user['smtp']['login'])
+        temp1 = str(user['smtp']['password'])
+        for temp in user['users']:
+            a, b, c = str(temp['login']), str(temp['password']), str(temp['email'])
+    except:
+        print(terminal.alerte("Le fichier user.json a été corrompu !"))
+        return False
+    return True

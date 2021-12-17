@@ -2,6 +2,7 @@ import src.verification as verification
 import src.securite as securite
 import src.fichier as fichier
 import src.couleur as couleur
+import src.authentification as authentification
 import src.app as app
 import os
 import time
@@ -17,12 +18,10 @@ terminal = couleur.Couleur()
 
 def start():
     app.efface(terminal)
-    verification.verificationDepart(app, chiffSys, editeur, terminal)
-    # TODO Authentification
-    print(terminal.info("Authentification prochainement disponible ..."))
-        # TODO Vérifier l'intégriter du fichier user.json
-        # TODO Demande 5 fois login et mdp
-        # TODO Vérrouillage et envoie du mail
+    if not verification.verificationDepart(app, chiffSys, editeur, terminal):
+        return False
+    if not authentification.auth(terminal, editeur, chiffSys):
+        return False
     # TODO Boucle
         # TODO Choix entre Chiffrer fichier txt/jpg ou png, Déchiffrer txt/jpg ou png, Paramètres, Se déconnecter
     print(terminal.info("Menu prochainement disponible ..."))
