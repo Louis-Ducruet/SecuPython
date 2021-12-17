@@ -33,7 +33,7 @@ def userIntegrite(terminal, editeur, chiffSys):
         temp1, temp2 = int(user['smtp']['port']), str(user['smtp']['login'])
         temp1 = str(user['smtp']['password'])
         for temp in user['users']:
-            a, b, c = str(temp['login']), str(temp['password']), str(temp['email'])
+            a, b = str(temp['login']), str(temp['password'])
     except:
         print(terminal.alerte("Le fichier user.json a été corrompu !"))
         return False
