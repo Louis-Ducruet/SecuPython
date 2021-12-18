@@ -1,5 +1,6 @@
 import src.verification as verification
 import src.securite as securite
+import src.fontionalite as fonctionalite
 import src.fichier as fichier
 import src.couleur as couleur
 import src.authentification as authentification
@@ -25,8 +26,14 @@ def start():
     while True:
         app.efface(terminal)
         app.afficheMenu(terminal)
-        input(terminal.input("un nombre entre 1 et 6 pour", "choisir un menu"))
-        # TODO Appel de la fonction choisi dans le menu
+        menu = input(terminal.input("un nombre entre 1 et 6 pour", "choisir un menu"))
+        if menu in ["1", "2", "3", "4", "5", "6"]:
+            app.efface(terminal)
+            menu = int(menu)
+            fonctionalite.appelMenu(terminal, menu)
+        else:
+            print(terminal.attention("Le menu {} n'existe pas.".format(menu)))
+            input(terminal.attendre("pour continuer."))
 
 
 start()
