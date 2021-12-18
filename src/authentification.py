@@ -27,16 +27,16 @@ def auth(terminal, editeur, chiffSys):
             print(terminal.attention("La combinaison id/mdp est incorrect il vous reste {} tentative(s)".format(5 - i)))
         login = input(terminal.input("votre", "login"))
         mdp = input(terminal.input("votre", "mot de passe"))
-        print("\n")
+        print("")
+        print(terminal.info("Vérification du Login / Mdp ..."))
+        # Simule un lag pour masqué l'envoie du mail.
+        if i != 4:
+            time.sleep(1)
         for id, compte in enumerate(user['users']):
             if login == compte['login'] and mdp == compte['password']:
                 app.currentUser = id
-                print(terminal.info("Vérification du Login / Mdp ..."))
-                time.sleep(1)
                 return True
-    app.efface(terminal)
-    print(terminal.info("Authentification"))
-    print(terminal.info("Vérification du Login / Mdp ..."))
+    # Si les 5 sont faux blockage du programme et envoie du mail
     editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time() - 86400), True), True)
     mail = email.Mail(user)
     mail.envoyer()
