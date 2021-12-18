@@ -15,7 +15,7 @@ class Mail:
 
     def envoyer(self):
         message = MIMEMultipart("alternative")
-        message['Subject'] = "[SecuPython]: Alert tentative de connection"
+        message['Subject'] = "[SecuPython]: Alerte tentative de connexion"
         message['From'] = self.login
         message['To'] = self.email
         html = emailContent.html

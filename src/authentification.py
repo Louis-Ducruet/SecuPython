@@ -33,9 +33,10 @@ def auth(terminal, editeur, chiffSys):
                 return True
     app.efface(terminal)
     print(terminal.info("Authentification :"))
-    print(terminal.alerte("Trop de tentative de connection !"))
+    print(terminal.info("Vérification du Login / Mdp ..."))
     editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time()), True), True)
     mail = email.Mail(user)
     mail.envoyer()
+    print(terminal.alerte("Trop de tentative de connection !"))
     print(terminal.attention("Par sécurité l'app est bloquée pour 24h."))
     return False
