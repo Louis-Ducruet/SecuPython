@@ -33,7 +33,6 @@ def auth(terminal, editeur, chiffSys):
                 app.currentUser = id
                 print(terminal.info("Vérification du Login / Mdp ..."))
                 time.sleep(1)
-                app.efface(terminal)
                 return True
     app.efface(terminal)
     print(terminal.info("Authentification"))

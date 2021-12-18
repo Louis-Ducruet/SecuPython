@@ -32,3 +32,14 @@ def secuTime(editeur, chiffSys, terminal):
         return False
     else:
         return True
+
+
+def afficheMenu(terminal):
+    print(terminal.info("Menu SecuPython"))
+    print(terminal.menu(1, "chiffrer (.txt)"))
+    print(terminal.menu(2, "déchiffrer (.txt)"))
+    print(terminal.menu(3, "chiffrer (.jpg, .png)"))
+    print(terminal.menu(4, "déchiffrer (.jpg, .png)"))
+    print(terminal.menu(5, "les paramètres"))
+    print(terminal.menu(6, "se déconnecter"))
+    print("")

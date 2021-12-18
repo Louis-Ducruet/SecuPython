@@ -22,9 +22,10 @@ def start():
         return False
     if not authentification.auth(terminal, editeur, chiffSys):
         return False
-    # TODO Boucle
-        # TODO Choix entre Chiffrer fichier txt/jpg ou png, Déchiffrer txt/jpg ou png, Paramètres, Se déconnecter
-    print(terminal.info("Menu prochainement disponible ..."))
+    while True:
+        app.efface(terminal)
+        app.afficheMenu(terminal)
+        input(terminal.input("un nombre entre 1 et 6 pour", "choisir un menu"))
         # TODO Appel de la fonction choisi dans le menu
 
 

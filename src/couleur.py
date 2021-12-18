@@ -46,3 +46,6 @@ class Couleur:
 
     def input(self, premsg ,message):
         return "Merci d'enter {} {}{}{} : ".format(premsg, self.fVert, message, self.annule)
+
+    def menu(self, id, message):
+        return "{} {} {} Pour {}{}{}.".format(self.bRose, id, self.annule, self.fJaune, message, self.annule)
