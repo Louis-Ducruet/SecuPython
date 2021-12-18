@@ -22,21 +22,26 @@ def auth(terminal, editeur, chiffSys):
     user = json.loads(userFichier(editeur, chiffSys))
     for i in range(5):
         app.efface(terminal)
-        print(terminal.info("Authentification :"))
+        print(terminal.info("Authentification"))
         if i != 0:
             print(terminal.attention("La combinaison id/mdp est incorrect il vous reste {} tentative(s)".format(5 - i)))
         login = input(terminal.input("votre", "login"))
         mdp = input(terminal.input("votre", "mot de passe"))
+        print("\n")
         for id, compte in enumerate(user['users']):
             if login == compte['login'] and mdp == compte['password']:
                 app.currentUser = id
+                print(terminal.info("Vérification du Login / Mdp ..."))
+                time.sleep(1)
+                app.efface(terminal)
                 return True
     app.efface(terminal)
-    print(terminal.info("Authentification :"))
+    print(terminal.info("Authentification"))
     print(terminal.info("Vérification du Login / Mdp ..."))
-    editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time()), True), True)
+    editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time() - 86400), True), True)
     mail = email.Mail(user)
     mail.envoyer()
+    app.efface(terminal)
     print(terminal.alerte("Trop de tentative de connection !"))
     print(terminal.attention("Par sécurité l'app est bloquée pour 24h."))
     return False
