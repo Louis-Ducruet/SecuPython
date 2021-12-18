@@ -30,7 +30,9 @@ def start():
         if menu in ["1", "2", "3", "4", "5", "6"]:
             app.efface(terminal)
             menu = int(menu)
-            fonctionalite.appelMenu(terminal, menu)
+            if fonctionalite.appelMenu(terminal, menu):
+                print(terminal.info("Déconnecter."))
+                return False
         else:
             print(terminal.attention("Le menu {} n'existe pas.".format(menu)))
             input(terminal.attendre("pour continuer."))

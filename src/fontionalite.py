@@ -7,8 +7,7 @@ def appelMenu(terminal, menu):
             print(terminal.info("Menu 4 bientôt disponible ..."))
             input(terminal.attendre("pour continuer."))
         else:
-            print(terminal.info("Menu 6 bientôt disponible ..."))
-            input(terminal.attendre("pour continuer."))
+            return True
     else:
         if menu == 1:
             print(terminal.info("Menu 1 bientôt disponible ..."))

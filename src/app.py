@@ -28,6 +28,7 @@ def secuTime(editeur, chiffSys, terminal):
         print(terminal.attention("Restauration du fichier, par sécurité l'app est bloquée pour 24h."))
         editeur.ecrireFichier("time.txt", chiffSys.chiffrement(int(time.time()), True), True)
         return False
+    # FIXME Remouve - 86400 after dev test
     if time.time() - 86400 < int(timer):
         return False
     else:
