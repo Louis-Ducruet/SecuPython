@@ -1,3 +1,4 @@
+import src.actionMenu as actionMenu
 import src.app as app
 import src.connexion as connexion
 import src.classe.affichage as affichage
@@ -21,9 +22,12 @@ def start():
         return False
     if not connexion.connexion(dossier, terminal, chiffSys, utilisateur, messagerie):
         return False
-    app.efface(terminal)
-    app.afficheMenu(terminal)
+    while True:
+        app.efface(terminal)
+        app.afficheMenu(terminal)
+        if actionMenu.action(terminal, dossier, chiffFile):
+            return False
 
 
 start()
-input(terminal.input("", "ENTER", ""))
+input(terminal.attendre("pour quitter"))

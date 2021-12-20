@@ -24,7 +24,7 @@ class Fichier:
         return False
 
     def ecrireFichier(self, fichier, msg, inSrc=False, isJson=False):
-        dossier = ("src" if inSrc else self.entree)
+        dossier = ("src" if inSrc else self.sortie)
         chemin = dossier + "/" + fichier
         fichier = open(chemin, "w", encoding="utf-8")
         json.dump(msg, fichier) if isJson else fichier.write(msg)
