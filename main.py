@@ -26,4 +26,4 @@ def start():
 
 
 start()
-input(terminal.input("", "", ""))
+input(terminal.input("", "ENTER", ""))

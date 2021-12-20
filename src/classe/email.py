@@ -14,9 +14,9 @@ class Email:
         self.password = self.user['smtp']['password']
         self.email = utilisateur.email
 
-    def envoyer(self, message, isHtml):
+    def envoyer(self, message, objet, isHtml):
         msg = MIMEMultipart("alternative")
-        msg['Subject'] = "[SecuPython]: Alerte tentative de connexion"
+        msg['Subject'] = "[SecuPython]: {}".format(objet)
         msg['From'] = self.login
         msg['To'] = self.email
         if isHtml:

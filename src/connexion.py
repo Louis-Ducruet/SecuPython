@@ -25,7 +25,7 @@ def connexion(dossier: fichier.Fichier, terminal: affichage.Affichage, chiffSys:
         if user.userExist(login, mdp):
             return True
     dossier.ecrireHeure(chiffSys)
-    email.envoyer(message.html, True)
+    email.envoyer(message.html, "Tentative de connexion", True)
     app.efface(terminal)
     print(terminal.alerte("Trop de tentative de connection !"))
     print(terminal.attention("Par sécurité l'app est bloquée pour 24h."))
