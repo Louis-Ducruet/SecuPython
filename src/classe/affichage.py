@@ -43,5 +43,5 @@ class Affichage:
     def menu(self, msgs):
         t = ""
         for id, msg in enumerate(msgs):
-            t += "{} {} {} Pour {}{}{}.".format(self.rose[1], id, self.annule, self.jaune[0], msg, self.annule)
+            t += "{} {} {} Pour {}{}{}.\n".format(self.rose[1], id + 1, self.annule, self.jaune[0], msg, self.annule)
         return t
