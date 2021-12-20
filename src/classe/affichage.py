@@ -32,7 +32,7 @@ class Affichage:
         return "{}{}Info : {}{}\n".format(self.cyan[1], self.noir[0], msg, self.annule)
 
     def input(self, preMsg, msg, postMsg):
-        return "Merci d'enter {} {}{}{} {} : ".format(preMsg, self.vert[1], msg, self.annule, postMsg)
+        return "Merci d'enter {} {}{}{} {} : ".format(preMsg, self.vert[0], msg, self.annule, postMsg)
 
     def logo(self):
         t = "\n"

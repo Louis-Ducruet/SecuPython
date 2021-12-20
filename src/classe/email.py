@@ -5,7 +5,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-
 class Email:
     def __init__(self, utilisateur: user.User):
         self.user = utilisateur.user
@@ -30,7 +29,7 @@ class Email:
             server = smtplib.SMTP(self.serveur, self.port)
             server.starttls(context=ctx)
             server.login(self.login, self.password)
-            server.sendmail(self.login, self.email, message.as_string())
+            server.sendmail(self.login, self.email, msg.as_string())
         except Exception as e:
             print(e)
         finally:
