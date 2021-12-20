@@ -10,9 +10,9 @@ class Fichier:
         self.sortie = dossierSortie
 
     def contenuFichier(self, fichier, inSrc=False):
-        dossier = "src" if inSrc else dossier = self.entree
+        dossier = ("src" if inSrc else self.entree)
         chemin = dossier + "/" + fichier
-        fichier = open(chemin, "r")
+        fichier = open(chemin, "r", encoding="utf-8")
         contenu = fichier.read()
         fichier.close()
         return contenu
@@ -24,9 +24,9 @@ class Fichier:
         return False
 
     def ecrireFichier(self, fichier, msg, inSrc=False, isJson=False):
-        dossier = "src" if inSrc else dossier = self.entree
+        dossier = ("src" if inSrc else self.entree)
         chemin = dossier + "/" + fichier
-        fichier = open(chemin, "w")
+        fichier = open(chemin, "w", encoding="utf-8")
         json.dump(msg, fichier) if isJson else fichier.write(msg)
         fichier.close()
 
@@ -35,7 +35,7 @@ class Fichier:
         self.ecrireFichier("time.txt", valeurFichier, True)
 
     def fichierExiste(self, fichier, inSrc=False):
-        dossier = "src" if inSrc else dossier = self.entree
+        dossier = ("src" if inSrc else self.entree)
         if os.path.exists(dossier + "/" + fichier):
             if os.path.isfile(dossier + "/" + fichier):
                 return True
