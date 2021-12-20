@@ -11,6 +11,7 @@ class User:
         contenu = self.securite.chiffrementTxt(contenu, False)
         self.user = json.loads(contenu)
         self.currentUser = 0
+        self.email = self.user['default-email']
 
     def ajouterUser(self, login, motDePasse):
         self.user['users'].append({"login": login, "password": motDePasse})
