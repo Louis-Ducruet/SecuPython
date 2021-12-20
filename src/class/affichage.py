@@ -1,22 +1,15 @@
-class Couleur:
+class Affichage:
     def __init__(self):
-        self.fNoir = "\033[30m"
-        self.fRouge = "\033[31m"
-        self.fVert = "\033[32m"
-        self.fJaune = "\033[33m"
-        self.fBleu = "\033[34m"
-        self.fRose = "\033[35m"
-        self.fCyan = "\033[36m"
-        self.fBlanc = "\033[37m"
-        self.bNoir = "\033[40m"
-        self.bRouge = "\033[41m"
-        self.bVert = "\033[42m"
-        self.bJaune = "\033[43m"
-        self.bBleu = "\033[44m"
-        self.bRose = "\033[45m"
-        self.bCyan = "\033[46m"
-        self.bBlanc = "\033[47m"
         self.annule = "\033[0m"
+        self.blanc = ("\033[37m", "\033[47m")
+        self.bleu = ("\033[34m", "\033[44m")
+        self.cyan = ("\033[36m", "\033[46m")
+        self.jaune = ("\033[33m", "\033[43m")
+        self.noir = ("\033[30m", "\033[40m")
+        self.rouge = ("\033[31m", "\033[41m")
+        self.rose = ("\033[35m", "\033[45m")
+        self.vert = ("\033[32m", "\033[42m")
+
         self.logoTxt = [
             "  {}███████╗███████╗ ██████╗██╗   ██╗{}██████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗{}\n",
             "  {}██╔════╝██╔════╝██╔════╝██║   ██║{}██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║{}\n",
@@ -26,26 +19,29 @@ class Couleur:
             "  {}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{}\n"
         ]
 
+    def alerte(self, msg):
+        return "{}{}Alerte : {}{}\n".format(self.rouge[1], self.blanc[0], msg, self.annule)
+
+    def attendre(self, msg):
+        return "Presser {}ENTER{} {}".format(self.jaune[0], self.annule, msg)
+
+    def attention(self, msg):
+        return "{}{}Attention : {}{}\n".format(self.jaune[1], self.noir[0], msg, self.annule)
+
+    def info(self, msg):
+        return "{}{}Info : {}{}\n".format(self.cyan[1], self.noir[0], msg, self.annule)
+
+    def input(self, preMsg, msg, postMsg):
+        return "Merci d'enter {} {}{}{} {} : ".format(preMsg, self.vert[1], msg, self.annule, postMsg)
+
     def logo(self):
         t = "\n"
         for line in self.logoTxt:
-            t += line.format(self.fCyan, self.fJaune, self.annule)
+            t += line.format(self.cyan[0], self.jaune[0], self.annule)
         return t
 
-    def alerte(self, message):
-        return "{}{}Alerte : {}{}\n".format(self.bRouge, self.fBlanc, message, self.annule)
-
-    def attention(self, message):
-        return "{}{}Attention : {}{}\n".format(self.bJaune, self.fNoir, message, self.annule)
-
-    def info(self, message):
-        return "{}{}Info : {}{}\n".format(self.bCyan, self.fNoir, message, self.annule)
-
-    def attendre(self, message):
-        return "Presser {}ENTER{} {}".format(self.fJaune, self.annule, message)
-
-    def input(self, premsg ,message):
-        return "Merci d'enter {} {}{}{} : ".format(premsg, self.fVert, message, self.annule)
-
-    def menu(self, id, message):
-        return "{} {} {} Pour {}{}{}.".format(self.bRose, id, self.annule, self.fJaune, message, self.annule)
+    def menu(self, msgs):
+        t = ""
+        for id, msg in enumerate(msgs):
+            t += "{} {} {} Pour {}{}{}.".format(self.rose[1], id, self.annule, self.jaune[0], msg, self.annule)
+        return t
