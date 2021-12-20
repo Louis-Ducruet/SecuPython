@@ -1,3 +1,4 @@
+import src.classe.securite as securite
 import os.path
 import time
 
@@ -28,8 +29,8 @@ class Fichier:
         contenu = fichier.write(msg)
         fichier.close()
 
-    def ecrireHeure(self, chiffSys):
-        valeurFichier = chiffSys.chiffrement(int(time.time()))
+    def ecrireHeure(self, chiffSys: securite.Securite):
+        valeurFichier = chiffSys.chiffrementTxt(int(time.time()))
         self.ecrireFichier("time.txt", valeurFichier, True)
 
     def fichierExiste(self, fichier, inSrc=False):
