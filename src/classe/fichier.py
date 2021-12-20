@@ -1,4 +1,5 @@
 import src.classe.securite as securite
+import json
 import os.path
 import time
 
@@ -22,11 +23,11 @@ class Fichier:
                 return True
         return False
 
-    def ecrireFichier(self, fichier, msg, inSrc=False):
+    def ecrireFichier(self, fichier, msg, inSrc=False, isJson=False):
         dossier = "src" if inSrc else dossier = self.entree
         chemin = dossier + "/" + fichier
         fichier = open(chemin, "w")
-        contenu = fichier.write(msg)
+        json.dump(msg, fichier) if isJson else fichier.write(msg)
         fichier.close()
 
     def ecrireHeure(self, chiffSys: securite.Securite):
