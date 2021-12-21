@@ -5,8 +5,8 @@ import src.classe.affichage as affichage
 
 def afficheMenu(affichage: affichage.Affichage):
     menu = [
-        "chiffrer (.txt)", "déchiffrer (.txt)", "chiffrer (.jpg, .jpeg, .png)", "déchiffrer (.jpg, .jpeg, .png)",
-        "les paramètres", "se déconnecter"
+        "chiffrer (.txt)", "déchiffrer (.txt)", "chiffrer/déchiffrer (.jpg, .jpeg, .png)", "les paramètres",
+        "se déconnecter"
     ]
     print(affichage.info("Menu SecuPython"))
     print(affichage.menu(menu))

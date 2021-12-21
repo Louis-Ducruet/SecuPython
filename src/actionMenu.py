@@ -10,7 +10,7 @@ import src.parametres as parametres
 def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite,
            messagerie: email.Email, utilisateur: user.User):
     menu = input(terminal.input("un", "numéro", "correspondant à un menu"))
-    if menu not in ["1", "2", "3", "4", "5", "6"]:
+    if menu not in ["1", "2", "3", "4", "5"]:
         print(terminal.attention("Le menu \"{}\" n'existe pas".format(menu)))
         input(terminal.attendre("pour continuer"))
         return False
@@ -20,25 +20,22 @@ def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement:
         if menu == 2:
             chiffrementTxt(terminal, dossier, chiffrement, False)
             return False
-        if menu == 4:
-            chiffrementImg(terminal, dossier, chiffrement, False)
-            return False
-        else:
-            print(terminal.info("Vous êtes déconnecté(e)"))
-            return True
-    else:
-        if menu == 1:
-            chiffrementTxt(terminal, dossier, chiffrement, True)
-            return False
-        if menu == 3:
-            chiffrementImg(terminal, dossier, chiffrement, True)
-            return False
         else:
             while True:
                 app.efface(terminal)
                 app.afficheParametre(terminal)
                 if parametres.action(terminal, messagerie, utilisateur):
                     return False
+    else:
+        if menu == 1:
+            chiffrementTxt(terminal, dossier, chiffrement, True)
+            return False
+        if menu == 3:
+            chiffrementImg(terminal, dossier, chiffrement)
+            return False
+        else:
+            print(terminal.info("Vous êtes déconnecté(e)"))
+            return True
 
 
 def chiffrementTxt(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
@@ -61,19 +58,18 @@ def chiffrementTxt(terminal: affichage.Affichage, dossier: fichier.Fichier, chif
     input(terminal.attendre("pour continuer."))
 
 
-def chiffrementImg(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
+def chiffrementImg(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite):
     # Affiche le titre du menu
-    menuName = "Chiffrer" if chiffre else "Déchiffrer"
-    print(terminal.info(menuName + " (.jpg, .jpeg, .png)"))
+    print(terminal.info("Chiffrer/Déchiffrer" + " (.jpg, .jpeg, .png)"))
     # Demande le fichier et vérifie s'il existe
     file = input(
-        terminal.input("le nom du fichier à {} dans le dossier".format(menuName.lower()), "{}".format(dossier.entree),
+        terminal.input("le nom du fichier à chiffrer/déchiffrer dans le dossier", "{}".format(dossier.entree),
                        ""))
     if dossier.fichierExiste(file) and (file.endswith(".jpg") or file.endswith(".jpeg") or file.endswith(".png")):
         # Chiffre le fichier
         msg = chiffrement.chiffrementImg(dossier.contenuImage(file))
         dossier.ecrireImage(file, msg)
-        print(terminal.info("Fichier {} disponible dans le dossier {}".format(menuName.lower(), dossier.sortie)))
+        print(terminal.info("Fichier chiffrer/déchiffrer disponible dans le dossier {}".format(dossier.sortie)))
     else:
         # Affiche qu'il n'existe pas
         print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .jpg ou .jpeg ou .png".format(file)))
