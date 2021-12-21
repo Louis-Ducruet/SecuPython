@@ -59,14 +59,14 @@ def chiffrementTxt(terminal: affichage.Affichage, dossier: fichier.Fichier, chif
 
 def chiffrementImg(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
     menuName = "Chiffrer" if chiffre else "Déchiffrer"
-    print(terminal.info(menuName + " (.jpg, .png)"))
+    print(terminal.info(menuName + " (.jpg, .jpeg, .png)"))
     file = input(
         terminal.input("le nom du fichier à {} dans le dossier".format(menuName.lower()), "{}".format(dossier.entree),
                        ""))
-    if dossier.fichierExiste(file) and (file.endswith(".jpg") or file.endswith(".png")):
+    if dossier.fichierExiste(file) and (file.endswith(".jpg") or file.endswith(".jpeg") or file.endswith(".png")):
         msg = chiffrement.chiffrementImg(dossier.contenuImage(file))
         dossier.ecrireImage(file, msg)
         print(terminal.info("Fichier {} disponible dans le dossier {}".format(menuName.lower(), dossier.sortie)))
     else:
-        print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .jpg ou .png".format(file)))
+        print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .jpg ou .jpeg ou .png".format(file)))
         input(terminal.attendre("pour continuer."))
