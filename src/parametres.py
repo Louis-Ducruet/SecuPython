@@ -1,8 +1,12 @@
 import src.app as app
 import src.classe.affichage as affichage
+import src.classe.email as email
+import src.email.codeChangeEmail as message
+import src.classe.user as user
+import random
 
 
-def action(terminal: affichage.Affichage):
+def action(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: user.User):
     menu = input(terminal.input("un", "numéro", "correspondant à un menu"))
     if menu not in ["1", "2", "3", "4", "5", "6"]:
         print(terminal.attention("Le menu \"{}\" n'existe pas".format(menu)))
@@ -19,8 +23,25 @@ def action(terminal: affichage.Affichage):
             return True
     else:
         if menu == 1:
-            pass
+            changeEmail(terminal, messagerie, utilisateur)
+            return False
         if menu == 3:
             pass
         else:
             pass
+
+
+def changeEmail(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: user.User):
+    print(terminal.info("Changer l'adresse email"))
+    adresse = input(terminal.input("la nouvelle", "adresse email", "de sécurité"))
+    code = "%06d" % random.randint(1, 999999)
+    print(terminal.info("Envoie d'un mail de confirmation ..."))
+    messagerie.envoyer(message.html(code), "Vérification de l'adresse email", True, adresse)
+    userCode = input(terminal.input("le", "code", "reçu par email"))
+    if userCode == code:
+        utilisateur.changerEmail(adresse)
+        print(terminal.info("Le changement est effectué."))
+    else:
+        print(terminal.alerte("Code faux : retour au paramètres"))
+    input(terminal.attendre("pour continuer"))
+

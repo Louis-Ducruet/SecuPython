@@ -14,11 +14,11 @@ class Email:
         self.password = self.user['smtp']['password']
         self.email = utilisateur.email
 
-    def envoyer(self, message, objet, isHtml):
+    def envoyer(self, message, objet, isHtml, destinataire=""):
         msg = MIMEMultipart("alternative")
         msg['Subject'] = "[SecuPython]: {}".format(objet)
         msg['From'] = self.login
-        msg['To'] = self.email
+        msg['To'] = destinataire if destinataire != "" else self.email
         if isHtml:
             contenu = MIMEText(message, "html")
         else:
@@ -29,7 +29,7 @@ class Email:
             server = smtplib.SMTP(self.serveur, self.port)
             server.starttls(context=ctx)
             server.login(self.login, self.password)
-            server.sendmail(self.login, self.email, msg.as_string())
+            server.sendmail(self.login, destinataire if destinataire != "" else self.email, msg.as_string())
         except Exception as e:
             print(e)
         finally:

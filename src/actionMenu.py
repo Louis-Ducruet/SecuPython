@@ -1,11 +1,14 @@
 import src.app as app
 import src.classe.affichage as affichage
+import src.classe.email as email
 import src.classe.fichier as fichier
 import src.classe.securite as securite
+import src.classe.user as user
 import src.parametres as parametres
 
 
-def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite):
+def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite,
+           messagerie: email.Email, utilisateur: user.User):
     menu = input(terminal.input("un", "numéro", "correspondant à un menu"))
     if menu not in ["1", "2", "3", "4", "5", "6"]:
         print(terminal.attention("Le menu \"{}\" n'existe pas".format(menu)))
@@ -32,7 +35,7 @@ def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement:
             while True:
                 app.efface(terminal)
                 app.afficheParametre(terminal)
-                if parametres.action(terminal):
+                if parametres.action(terminal, messagerie, utilisateur):
                     return False
 
 

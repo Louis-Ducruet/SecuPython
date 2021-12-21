@@ -25,7 +25,7 @@ def start():
     while True:
         app.efface(terminal)
         app.afficheMenu(terminal)
-        if actionMenu.action(terminal, dossier, chiffFile):
+        if actionMenu.action(terminal, dossier, chiffFile, messagerie, utilisateur):
             return False
 
 
