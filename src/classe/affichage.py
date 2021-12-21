@@ -19,27 +19,34 @@ class Affichage:
             "  {}╚══════╝╚══════╝ ╚═════╝ ╚═════╝ {}╚═╝        ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝{}\n"
         ]
 
+    # Message avec un fond rouge
     def alerte(self, msg):
         return "{}{}Alerte : {}{}\n".format(self.rouge[1], self.blanc[0], msg, self.annule)
 
+    # Message d'attente
     def attendre(self, msg):
         return "Presser {}ENTER{} {}".format(self.jaune[0], self.annule, msg)
 
+    # Message sur fond jaune
     def attention(self, msg):
         return "{}{}Attention : {}{}\n".format(self.jaune[1], self.noir[0], msg, self.annule)
 
+    # Message sur fond bleu
     def info(self, msg):
         return "{}{}Info : {}{}\n".format(self.cyan[1], self.noir[0], msg, self.annule)
 
+    # Message d'entrée
     def input(self, preMsg, msg, postMsg):
         return "Merci d'enter {} {}{}{} {} : ".format(preMsg, self.vert[0], msg, self.annule, postMsg)
 
+    # Met en page le logo avec coloration
     def logo(self):
         t = "\n"
         for line in self.logoTxt:
             t += line.format(self.cyan[0], self.jaune[0], self.annule)
         return t
 
+    # Met en page un menu
     def menu(self, msgs):
         t = ""
         for id, msg in enumerate(msgs):

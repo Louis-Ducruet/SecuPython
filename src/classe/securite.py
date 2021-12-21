@@ -33,7 +33,9 @@ class Securite:
         return messageChiffre
 
     def chiffrementImg(self, image):
+        # Chargement de l'image dans une liste
         image = bytearray(image)
         for id, valeur in enumerate(image):
+            # Chiffrement de l'élément de la liste
             image[id] = valeur ^ self.matrice1[0][0]
         return image
