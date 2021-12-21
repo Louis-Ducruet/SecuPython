@@ -16,7 +16,8 @@ def action(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: 
     menu = int(menu)
     if menu % 2 == 0:
         if menu == 2:
-            pass
+            changeLogin(terminal, utilisateur)
+            return False
         if menu == 4:
             pass
         else:
@@ -26,7 +27,8 @@ def action(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: 
             changeEmail(terminal, messagerie, utilisateur)
             return False
         if menu == 3:
-            pass
+            changeMDP(terminal, utilisateur)
+            return False
         else:
             pass
 
@@ -45,3 +47,24 @@ def changeEmail(terminal: affichage.Affichage, messagerie: email.Email, utilisat
         print(terminal.alerte("Code faux : retour au paramètres"))
     input(terminal.attendre("pour continuer"))
 
+
+def changeLogin(terminal: affichage.Affichage, utilisateur: user.User):
+    print(terminal.info("Changer de login"))
+    login = input(terminal.input("le nouveau", "login", "de connexion"))
+    if login != "":
+        utilisateur.changerLogin(login)
+        print(terminal.info("Le changement est effectué."))
+    else:
+        print(terminal.alerte("Login vide : retour au paramètres"))
+    input(terminal.attendre("pour continuer"))
+
+
+def changeMDP(terminal: affichage.Affichage, utilisateur: user.User):
+    print(terminal.info("Changer de mot de passe"))
+    login = input(terminal.input("le nouveau", "mot de passe", "de connexion"))
+    if login != "":
+        utilisateur.changerLogin(login)
+        print(terminal.info("Le changement est effectué."))
+    else:
+        print(terminal.alerte("Mot de passe vide : retour au paramètres"))
+    input(terminal.attendre("pour continuer"))
