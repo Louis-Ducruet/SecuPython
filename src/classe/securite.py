@@ -1,14 +1,14 @@
 class Securite:
-    def __init__(self, matriceC, matriceD):
-        self.matriceC = matriceC
-        self.matriceD = matriceD
+    def __init__(self, matrice1, matrice2):
+        self.matrice1 = matrice1
+        self.matrice2 = matrice2
 
-    def chiffrement(self, message, chiffrement):
+    def chiffrementTxt(self, msg, chiffrement=True):
         numberMessage = []
         chiffreMessage = []
         messageChiffre = ""
         # Transforme la chaine de caractères en nombres dans un tableau.
-        for key, lettre in enumerate(list(str(message))):
+        for key, lettre in enumerate(list(str(msg))):
             if key % 2 == 0:
                 numberMessage.append([ord(lettre), ord(' ')])
             else:
@@ -16,9 +16,9 @@ class Securite:
         # Chiffre le tableau en ce basant sur Hill
         for key, number in enumerate(numberMessage):
             if chiffrement:
-                matrice = self.matriceC
+                matrice = self.matrice1
             else:
-                matrice = self.matriceD
+                matrice = self.matrice2
             chiffreMessage.append([(number[0] * matrice[0][0] + number[1] * matrice[0][1]) % 1114111])
             chiffreMessage[key].append((number[0] * matrice[1][0] + number[1] * matrice[1][1]) % 1114111)
         # Détruit la variable numbreMessage
@@ -31,3 +31,9 @@ class Securite:
         # Détruit la variable chiffreMessage
         chiffreMessage.clear()
         return messageChiffre
+
+    def chiffrementImg(self, image):
+        image = bytearray(image)
+        for id, valeur in enumerate(image):
+            image[id] = valeur ^ self.matrice1[0][0]
+        return image

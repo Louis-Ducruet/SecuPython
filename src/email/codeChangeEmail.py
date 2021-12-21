@@ -1,6 +1,8 @@
-html = '''
+def html(code):
+    return '''
             <!doctype html>
-            <html xmlns="http://www.w3.org/1999/xhtml">
+            <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+                  xmlns:o="urn:schemas-microsoft-com:office:office">
             <head>
                 <title>
             
@@ -44,17 +46,15 @@ html = '''
                 </style>
                 <!--[if mso]>
                 <xml>
-                    <o:OfficeDocumentSettings>
-                        <o:AllowPNG/>
-                        <o:PixelsPerInch>96</o:PixelsPerInch>
-                    </o:OfficeDocumentSettings>
+                <o:OfficeDocumentSettings>
+                  <o:AllowPNG/>
+                  <o:PixelsPerInch>96</o:PixelsPerInch>
+                </o:OfficeDocumentSettings>
                 </xml>
                 <![endif]-->
                 <!--[if lte mso 11]>
                 <style type="text/css">
-                    .outlook-group-fix {
-                        width: 100% !important;
-                    }
+                  .outlook-group-fix { width:100% !important; }
                 </style>
                 <![endif]-->
             
@@ -230,37 +230,36 @@ html = '''
                 }</style>
             
             </head>
-            <body style="background-color:#D64242;">
+            <body style="background-color:#CCAA71;">
             
             
-            <div style="background-color:#D64242;">
+            <div style="background-color:#CCAA71;">
             
             
                 <!--[if mso | IE]>
                 <table
-                        align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+                   align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
                 >
-                    <tr>
-                        <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+                  <tr>
+                    <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
                 <![endif]-->
             
             
-                <div style="background:#D64242;background-color:#D64242;margin:0px auto;max-width:600px;">
+                <div style="margin:0px auto;max-width:600px;">
             
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-                           style="background:#D64242;background-color:#D64242;width:100%;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
                         <tbody>
                         <tr>
-                            <td style="border:0px #FFF solid;direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;">
+                            <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;">
                                 <!--[if mso | IE]>
-                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-            
-                                    <tr>
-            
-                                        <td
-                                                class="" style="vertical-align:top;width:300px;"
-                                        >
-                                <![endif]-->
+                                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                
+                        <tr>
+                      
+                            <td
+                               class="" style="vertical-align:top;width:300px;"
+                            >
+                          <![endif]-->
             
                                 <div class="mj-column-per-50 outlook-group-fix"
                                      style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:50%;">
@@ -278,7 +277,7 @@ html = '''
                                                         <td style="width:180px;">
             
                                                             <img height="auto"
-                                                                 src="https://s3-eu-west-1.amazonaws.com/topolio/uploads/61bdd84876743/1639832232.jpg"
+                                                                 src="https://s3-eu-west-1.amazonaws.com/topolio/uploads/61c0bd749130f/1640022274.jpg"
                                                                  style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
                                                                  width="180">
             
@@ -295,53 +294,42 @@ html = '''
                                 </div>
             
                                 <!--[if mso | IE]>
-                                </td>
-            
-                                <td
-                                        class="" style="vertical-align:top;width:300px;"
-                                >
+                                  </td>
+                                
+                                  <td
+                                     class="" style="vertical-align:top;width:300px;"
+                                  >
                                 <![endif]-->
             
                                 <div class="mj-column-per-50 outlook-group-fix"
                                      style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:50%;">
             
-                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                                        <tbody>
+                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation"
+                                           style="vertical-align:top;" width="100%">
+            
                                         <tr>
-                                            <td style="vertical-align:top;padding:0px 0px 0px 0px;">
+                                            <td align="left"
+                                                style="font-size:0px;padding:75px 15px 75px 15px;word-break:break-word;">
             
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style
-                                                       width="100%">
-            
-                                                    <tr>
-                                                        <td align="left"
-                                                            style="font-size:0px;padding:75px 15px 75px 15px;word-break:break-word;">
-            
-                                                            <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.2;text-align:left;color:#000000;">
-                                                                <h1 style="font-family: 'Cabin', sans-serif; font-size: 22px; text-align: center;">
-                                                                    <span style="color: #ecf0f1; font-size: 24px;"><span
-                                                                            style="font-family: Cabin, sans-serif;">Message</span> automatique</span>
-                                                                </h1></div>
-            
-                                                        </td>
-                                                    </tr>
-            
-                                                </table>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
+                                                    <h1 style="font-family: 'Cabin', sans-serif; font-size: 22px; text-align: center;">
+                                                        <span style="color: #ecf0f1; font-size: 24px;">Message automatique</span>
+                                                    </h1></div>
             
                                             </td>
                                         </tr>
-                                        </tbody>
+            
                                     </table>
             
                                 </div>
             
                                 <!--[if mso | IE]>
-                                </td>
-            
-                                </tr>
-            
-                                </table>
-                                <![endif]-->
+                                  </td>
+                                
+                              </tr>
+                            
+                                        </table>
+                                      <![endif]-->
                             </td>
                         </tr>
                         </tbody>
@@ -351,15 +339,15 @@ html = '''
             
             
                 <!--[if mso | IE]>
-                </td>
-                </tr>
+                    </td>
+                  </tr>
                 </table>
-            
+                
                 <table
-                        align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+                   align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
                 >
-                    <tr>
-                        <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+                  <tr>
+                    <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
                 <![endif]-->
             
             
@@ -369,16 +357,16 @@ html = '''
                            style="background:#FFFFFF;background-color:#FFFFFF;width:100%;">
                         <tbody>
                         <tr>
-                            <td style="border:0px #000000 solid;direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;">
+                            <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;">
                                 <!--[if mso | IE]>
-                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-            
-                                    <tr>
-            
-                                        <td
-                                                class="" style="vertical-align:top;width:600px;"
-                                        >
-                                <![endif]-->
+                                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                
+                        <tr>
+                      
+                            <td
+                               class="" style="vertical-align:top;width:600px;"
+                            >
+                          <![endif]-->
             
                                 <div class="mj-column-per-100 outlook-group-fix"
                                      style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
@@ -392,7 +380,7 @@ html = '''
             
                                                 <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
                                                     <h1 style="font-family: 'Cabin', sans-serif; font-size: 22px;"><span
-                                                            style="font-size: 24px;">Tentative de connection sur l'application <span
+                                                            style="font-size: 24px;">V&eacute;rification de l'adresse email de <span
                                                             style="color: #3598db;">Secu</span><span
                                                             style="color: #e67e23;">Python</span></span></h1></div>
             
@@ -405,33 +393,18 @@ html = '''
             
                                                 <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
-                                                            style="font-size: 15px;">Bonjour madame, monsieur,</span></p>
+                                                            style="font-size: 14px;">Bonjour madame, monsieur,</span></p>
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;">&nbsp;</p>
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
-                                                            style="font-size: 15px;">Une tentative de connexion&nbsp;&agrave; votre application <strong><span
-                                                            style="color: #3598db;">Secu</span><span
-                                                            style="color: #e67e23;">Python</span></strong> avec une mauvaise comibinaison login/mot de passe.</span>
+                                                            style="font-size: 14px;">Vous trouverez ci-dessous le code de confirmation pour valider le changement d'adresse email.</span>
                                                     </p>
+                                                    <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
+                                                            style="font-size: 22px;">Code : ''' + str(code) + '''</span></p>
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;">&nbsp;</p>
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
-                                                            style="font-size: 15px;">Par s&eacute;curit&eacute; votre application <strong><span
-                                                            style="color: #3598db;">Secu</span><span
-                                                            style="color: #e67e23;">Python</span> </strong>c'est <strong><span
-                                                            style="text-decoration: underline;"><span
-                                                            style="color: #e03e2d; text-decoration: underline;">verouill&eacute;e</span></span><span
-                                                            style="color: #e03e2d;"> </span></strong>pour une dur&eacute;e de <span
-                                                            style="text-decoration: underline;"><span
-                                                            style="color: #e03e2d; text-decoration: underline;"><strong>24h</strong></span></span>.</span>
-                                                    </p>
-                                                    <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;">&nbsp;</p>
+                                                            style="font-size: 14px;">Cordialement</span></p>
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
-                                                            style="font-size: 15px;">Par mesure de s&eacute;curit&eacute; nous vous conseillons de changer votre mot de passe lors de votre prochaine connexion sur l'application.</span>
-                                                    </p>
-                                                    <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;">&nbsp;</p>
-                                                    <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
-                                                            style="font-size: 15px;">Cordialement</span></p>
-                                                    <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial;"><span
-                                                            style="font-size: 15px;">L'&eacute;quipe <strong><span
+                                                            style="font-size: 14px;">L'&eacute;quipe <strong><span
                                                             style="color: #3598db;">Secu</span><span
                                                             style="color: #e67e23;">Python</span></strong></span></p></div>
             
@@ -443,12 +416,12 @@ html = '''
                                 </div>
             
                                 <!--[if mso | IE]>
-                                </td>
-            
-                                </tr>
-            
-                                </table>
-                                <![endif]-->
+                                  </td>
+                                
+                              </tr>
+                            
+                                        </table>
+                                      <![endif]-->
                             </td>
                         </tr>
                         </tbody>
@@ -458,15 +431,15 @@ html = '''
             
             
                 <!--[if mso | IE]>
-                </td>
-                </tr>
+                    </td>
+                  </tr>
                 </table>
-            
+                
                 <table
-                        align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+                   align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
                 >
-                    <tr>
-                        <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+                  <tr>
+                    <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
                 <![endif]-->
             
             
@@ -478,14 +451,14 @@ html = '''
                         <tr>
                             <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;">
                                 <!--[if mso | IE]>
-                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-            
-                                    <tr>
-            
-                                        <td
-                                                class="" style="vertical-align:top;width:600px;"
-                                        >
-                                <![endif]-->
+                                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                
+                        <tr>
+                      
+                            <td
+                               class="" style="vertical-align:top;width:600px;"
+                            >
+                          <![endif]-->
             
                                 <div class="mj-column-per-100 outlook-group-fix"
                                      style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
@@ -499,11 +472,10 @@ html = '''
             
                                                 <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;">
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial; text-align: center;">
-                                                        <span style="font-size: 12px; color: #ecf0f1;">Ce mail est envoy&eacute; automatiquement par l'application SecuPython.</span>
+                                                        <span style="color: #ffffff;">Ce mail est envoy&eacute; automatiquement par l'application SecuPython.</span>
                                                     </p>
                                                     <p style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial; text-align: center;">
-                                                        <span style="font-size: 12px; color: #ecf0f1;">&copy; SecuPython 2021</span>
-                                                    </p></div>
+                                                        <span style="color: #ffffff;">&copy; SecuPython 2021</span></p></div>
             
                                             </td>
                                         </tr>
@@ -513,12 +485,12 @@ html = '''
                                 </div>
             
                                 <!--[if mso | IE]>
-                                </td>
-            
-                                </tr>
-            
-                                </table>
-                                <![endif]-->
+                                  </td>
+                                
+                              </tr>
+                            
+                                        </table>
+                                      <![endif]-->
                             </td>
                         </tr>
                         </tbody>
@@ -528,11 +500,14 @@ html = '''
             
             
                 <!--[if mso | IE]>
-                </td>
-                </tr>
+                    </td>
+                  </tr>
                 </table>
                 <![endif]-->
+            
+            
             </div>
+            
             </body>
             </html>
         '''
