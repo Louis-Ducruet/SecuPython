@@ -19,7 +19,8 @@ def action(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: 
             changeLogin(terminal, utilisateur)
             return False
         if menu == 4:
-            pass
+            ajoutUser(terminal, utilisateur)
+            return False
         else:
             return True
     else:
@@ -61,10 +62,23 @@ def changeLogin(terminal: affichage.Affichage, utilisateur: user.User):
 
 def changeMDP(terminal: affichage.Affichage, utilisateur: user.User):
     print(terminal.info("Changer de mot de passe"))
-    login = input(terminal.input("le nouveau", "mot de passe", "de connexion"))
-    if login != "":
-        utilisateur.changerLogin(login)
+    mdp = input(terminal.input("le nouveau", "mot de passe", "de connexion"))
+    if mdp != "":
+        utilisateur.changerLogin(mdp)
         print(terminal.info("Le changement est effectué."))
     else:
         print(terminal.alerte("Mot de passe vide : retour au paramètres"))
     input(terminal.attendre("pour continuer"))
+
+
+def ajoutUser(terminal: affichage.Affichage, utilisateur: user.User):
+    print(terminal.info("Ajouter un utilisateur"))
+    login = input(terminal.input("le", "login", "de connexion"))
+    mdp = input(terminal.input("le nouveau", "mot de passe", "de connexion"))
+    if login != "" and mdp != "":
+        utilisateur.ajouterUser(login, mdp)
+        print(terminal.info("Le changement est effectué."))
+    else:
+        print(terminal.alerte("Login ou Mot de passe vide : retour au paramètres"))
+    input(terminal.attendre("pour continuer"))
+
