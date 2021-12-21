@@ -37,8 +37,7 @@ def secuTime(fichier: fichier.Fichier, chiffSys: securite.Securite, affichage: a
         print(affichage.attention("Restauration du fichier, par sécurité l'app est bloquée pour 24h."))
         fichier.ecrireHeure(chiffSys)
         return False
-    # FIXME après le dev supprimer le - 86400 final.
-    if time.time() - 86400 < int(timer) - 86400:
+    if time.time() - 86400 < int(timer):
         return False
     else:
         return True

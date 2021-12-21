@@ -16,8 +16,8 @@ def connexion(dossier: fichier.Fichier, terminal: affichage.Affichage, chiffSys:
         print(terminal.info("Authentification"))
         if i != 0:
             print(terminal.attention("La combinaison id/mdp est incorrect il vous reste {} tentative(s)".format(5 - i)))
-        login = input(terminal.input("votre", "login", ""))
-        mdp = input(terminal.input("votre", "mot de passe", ""))
+        login = input(terminal.input("votre", "login", "de connexion"))
+        mdp = input(terminal.input("votre", "mot de passe", "de connexion"))
         print("")
         print(terminal.info("Vérification du Login / Mdp ..."))
         if i != 4:
