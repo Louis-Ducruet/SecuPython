@@ -2,6 +2,7 @@ import src.app as app
 import src.classe.affichage as affichage
 import src.classe.fichier as fichier
 import src.classe.securite as securite
+import src.parametres as parametres
 
 
 def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite):
@@ -28,7 +29,11 @@ def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement:
         if menu == 3:
             pass
         else:
-            pass
+            while True:
+                app.efface(terminal)
+                app.afficheParametre(terminal)
+                if parametres.action(terminal):
+                    return False
 
 
 def chiffrementTxt(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
