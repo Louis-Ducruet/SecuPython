@@ -21,7 +21,8 @@ def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement:
             chiffrementTxt(terminal, dossier, chiffrement, False)
             return False
         if menu == 4:
-            pass
+            chiffrementImg(terminal, dossier, chiffrement, False)
+            return False
         else:
             print(terminal.info("Vous êtes déconnecté(e)"))
             return True
@@ -30,7 +31,8 @@ def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement:
             chiffrementTxt(terminal, dossier, chiffrement, True)
             return False
         if menu == 3:
-            pass
+            chiffrementImg(terminal, dossier, chiffrement, True)
+            return False
         else:
             while True:
                 app.efface(terminal)
@@ -53,3 +55,18 @@ def chiffrementTxt(terminal: affichage.Affichage, dossier: fichier.Fichier, chif
     else:
         print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .txt".format(file)))
     input(terminal.attendre("pour continuer."))
+
+
+def chiffrementImg(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
+    menuName = "Chiffrer" if chiffre else "Déchiffrer"
+    print(terminal.info(menuName + " (.jpg, .png)"))
+    file = input(
+        terminal.input("le nom du fichier à {} dans le dossier".format(menuName.lower()), "{}".format(dossier.entree),
+                       ""))
+    if dossier.fichierExiste(file) and (file.endswith(".jpg") or file.endswith(".png")):
+        msg = chiffrement.chiffrementImg(dossier.contenuImage(file))
+        dossier.ecrireImage(file, msg)
+        print(terminal.info("Fichier {} disponible dans le dossier {}".format(menuName.lower(), dossier.sortie)))
+    else:
+        print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .jpg ou .png".format(file)))
+        input(terminal.attendre("pour continuer."))

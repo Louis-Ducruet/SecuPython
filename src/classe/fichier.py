@@ -17,6 +17,13 @@ class Fichier:
         fichier.close()
         return contenu
 
+    def contenuImage(self, fichier):
+        chemin = self.entree + "/" + fichier
+        file = open(chemin, "rb")
+        contenu = file.read()
+        file.close()
+        return contenu
+
     def dossierExist(self):
         if os.path.exists(self.entree) and os.path.exists(self.sortie):
             if os.path.isdir(self.entree) and os.path.isdir(self.sortie):
@@ -33,6 +40,12 @@ class Fichier:
     def ecrireHeure(self, chiffSys: securite.Securite):
         valeurFichier = chiffSys.chiffrementTxt(int(time.time()))
         self.ecrireFichier("time.txt", valeurFichier, True)
+
+    def ecrireImage(self, fichier, contenu):
+        chemin = self.sortie + "/" + fichier
+        file = open(chemin, "wb")
+        file.write(contenu)
+        file.close()
 
     def fichierExiste(self, fichier, inSrc=False):
         dossier = ("src" if inSrc else self.entree)

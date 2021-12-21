@@ -31,3 +31,9 @@ class Securite:
         # Détruit la variable chiffreMessage
         chiffreMessage.clear()
         return messageChiffre
+
+    def chiffrementImg(self, image):
+        image = bytearray(image)
+        for id, valeur in enumerate(image):
+            image[id] = valeur ^ self.matrice1[0][0]
+        return image
