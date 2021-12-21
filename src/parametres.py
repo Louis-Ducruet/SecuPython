@@ -31,7 +31,7 @@ def action(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: 
             changeMDP(terminal, utilisateur)
             return False
         else:
-            pass
+            suppUser(terminal, utilisateur)
 
 
 def changeEmail(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: user.User):
@@ -81,4 +81,17 @@ def ajoutUser(terminal: affichage.Affichage, utilisateur: user.User):
     else:
         print(terminal.alerte("Login ou Mot de passe vide : retour au paramètres"))
     input(terminal.attendre("pour continuer"))
+
+
+def suppUser(terminal: affichage.Affichage, utilisateur: user.User):
+    print(terminal.info("Supprimer ce compte"))
+    choix = input(terminal.input("Voulez vous", "Oui ou Non", "supprimer votre compte"))
+    if choix == "Oui":
+        utilisateur.supprimerUser()
+        print(terminal.info("Le changement est effectué."))
+        input(terminal.attendre("pour quitter"))
+        exit()
+    else:
+        print(terminal.alerte("Annulation de la suppression : retour au paramètres"))
+        input(terminal.attendre("pour continuer"))
 
