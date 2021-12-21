@@ -87,7 +87,7 @@ def ajoutUser(terminal: affichage.Affichage, utilisateur: user.User):
 def suppUser(terminal: affichage.Affichage, utilisateur: user.User):
     print(terminal.info("Supprimer ce compte"))
     choix = input(terminal.input("Voulez vous", "Oui ou Non", "supprimer votre compte"))
-    if choix == "Oui":
+    if choix == "Oui" and len(utilisateur.user['users']) > 1:
         utilisateur.supprimerUser()
         print(terminal.info("Le changement est effectué."))
         input(terminal.attendre("pour quitter"))
