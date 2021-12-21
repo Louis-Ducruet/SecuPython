@@ -22,5 +22,6 @@ def afficheParametre(affichage: affichage.Affichage):
 
 
 def efface(affichage: affichage.Affichage):
+    # Change la commande pour clear en fonction de l'os
     os.system('cls') if os.name == 'nt' else os.system('clear')
     print(affichage.logo())

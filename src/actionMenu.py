@@ -42,31 +42,39 @@ def action(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement:
 
 
 def chiffrementTxt(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
+    # Affiche le titre du menu
     menuName = "Chiffrer" if chiffre else "Déchiffrer"
     print(terminal.info(menuName + " (.txt)"))
+    # Demande le fichier et vérifie s'il existe
     file = input(
         terminal.input("le nom du fichier à {} dans le dossier".format(menuName.lower()), "{}".format(dossier.entree),
                        ""))
     print("")
     if dossier.fichierExiste(file) and file.endswith(".txt"):
+        # Chiffre le fichier
         msg = chiffrement.chiffrementTxt(dossier.contenuFichier(file), chiffre)
         dossier.ecrireFichier(file, msg)
         print(terminal.info("Fichier {} disponible dans le dossier {}".format(menuName.lower(), dossier.sortie)))
     else:
+        # Affiche qu'il n'existe pas
         print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .txt".format(file)))
     input(terminal.attendre("pour continuer."))
 
 
 def chiffrementImg(terminal: affichage.Affichage, dossier: fichier.Fichier, chiffrement: securite.Securite, chiffre):
+    # Affiche le titre du menu
     menuName = "Chiffrer" if chiffre else "Déchiffrer"
     print(terminal.info(menuName + " (.jpg, .jpeg, .png)"))
+    # Demande le fichier et vérifie s'il existe
     file = input(
         terminal.input("le nom du fichier à {} dans le dossier".format(menuName.lower()), "{}".format(dossier.entree),
                        ""))
     if dossier.fichierExiste(file) and (file.endswith(".jpg") or file.endswith(".jpeg") or file.endswith(".png")):
+        # Chiffre le fichier
         msg = chiffrement.chiffrementImg(dossier.contenuImage(file))
         dossier.ecrireImage(file, msg)
         print(terminal.info("Fichier {} disponible dans le dossier {}".format(menuName.lower(), dossier.sortie)))
     else:
+        # Affiche qu'il n'existe pas
         print(terminal.attention("Le fichier {} n'existe pas ou n'est pas un .jpg ou .jpeg ou .png".format(file)))
-        input(terminal.attendre("pour continuer."))
+    input(terminal.attendre("pour continuer."))

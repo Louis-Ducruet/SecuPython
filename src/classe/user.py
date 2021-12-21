@@ -37,12 +37,8 @@ class User:
         self.dossier.ecrireFichier("user.json", contenu, True)
 
     def supprimerUser(self):
-        # Vérifie s'il reste un utilisateur après la suppression
-        if len(self.user['users']) > 1:
-            del (self.user['users'][self.currentUser])
-            self.ecrireFichier()
-            return True
-        return False
+        del (self.user['users'][self.currentUser])
+        self.ecrireFichier()
 
     def userExist(self, login, motDePasse):
         for id, compte in enumerate(self.user['users']):
