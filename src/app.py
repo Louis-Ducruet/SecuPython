@@ -1,5 +1,6 @@
-import src.classe.affichage as affichage
 import os
+
+import src.classe.affichage as affichage
 
 
 def afficheMenu(affichage: affichage.Affichage):

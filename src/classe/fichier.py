@@ -1,7 +1,8 @@
-import src.classe.securite as securite
 import json
 import os.path
 import time
+
+import src.classe.securite as securite
 
 
 class Fichier:

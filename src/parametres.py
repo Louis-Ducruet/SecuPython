@@ -1,9 +1,10 @@
+import random
+
 import src.app as app
 import src.classe.affichage as affichage
 import src.classe.email as email
-import src.email.codeChangeEmail as message
 import src.classe.user as user
-import random
+import src.email.codeChangeEmail as message
 
 
 def action(terminal: affichage.Affichage, messagerie: email.Email, utilisateur: user.User):
@@ -94,4 +95,3 @@ def suppUser(terminal: affichage.Affichage, utilisateur: user.User):
     else:
         print(terminal.alerte("Annulation de la suppression : retour au paramètres"))
         input(terminal.attendre("pour continuer"))
-

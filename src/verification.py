@@ -1,8 +1,9 @@
+import json
+import time
+
 import src.classe.affichage as affichage
 import src.classe.fichier as fichier
 import src.classe.securite as securite
-import json
-import time
 
 
 def verification(dossier: fichier.Fichier, terminal: affichage.Affichage, chiffSys: securite.Securite):

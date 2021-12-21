@@ -1,6 +1,7 @@
+import json
+
 import src.classe.fichier as fichier
 import src.classe.securite as securite
-import json
 
 
 class User:
@@ -37,7 +38,7 @@ class User:
 
     def supprimerUser(self):
         if len(self.user['users']) > 1:
-            del(self.user['users'][self.currentUser])
+            del (self.user['users'][self.currentUser])
             self.ecrireFichier()
             return True
         return False
