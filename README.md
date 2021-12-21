@@ -1,4 +1,4 @@
-# Mini projet : Les fondamentaux de Python
+# SecuPython
 
 ## Les classes du projet
 
